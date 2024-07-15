@@ -102,7 +102,7 @@ npm run start
 
 ## 📄 Documentação
 
-A documentação da API pode ser acessada através do Swagger UI na rota: http://localhost:3333/docs.
+A documentação da API pode ser acessada através do Swagger UI na rota: http://localhost:1111/docs.
 
 ## 📝 Notas
 
