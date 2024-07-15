@@ -1,0 +1,110 @@
+# 📋 Projeto de Academia
+
+## 📌 Requisitos Funcionais (RFs)
+
+- [x] Deve ser possível se cadastrar
+- [x] Deve ser possível se autenticar
+- [x] Deve ser possível obter o perfil do usuário logado
+- [x] Deve ser possível obter o número de check-ins realizados pelo usuário logado
+- [x] Deve ser possível o usuário obter seu histórico de check-ins
+- [x] Deve ser possível o usuário buscar academias próximas
+- [x] Deve ser possível pesquisar academia pelo nome
+- [x] Deve ser possível realizar check-in em uma academia
+- [x] Deve ser possível validar o check-in de um usuário
+- [x] Deve ser possível cadastrar uma academia
+
+## ⚙️ Regras de Negócio (RNs)
+
+- [x] O usuário não deve poder se cadastrar com um e-mail duplicado
+- [x] O usuário não pode fazer 2 check-ins no mesmo dia
+- [x] O usuário não pode fazer check-in se não estiver perto (100m) da academia
+- [x] O check-in só pode ser validado até 20 minutos após criado
+- [x] O check-in só pode ser validado por administradores
+- [x] A academia só pode ser cadastrada por administradores
+
+## 🛠️ Requisitos Não-Funcionais (RNFs)
+
+- [x] A senha do usuário precisa estar criptografada
+- [x] Os dados da aplicação precisam estar persistidos em um banco PostgreSQL
+- [x] Todos os dados precisam estar paginados com 20 linhas por página
+- [x] O usuário precisa estar identificado por um JWT (JSON Web Token)
+
+## 🛠️ Tecnologias Utilizadas
+
+```json
+"devDependencies": {
+    "@rocketseat/eslint-config": "2.2.2",
+    "@types/node": "20.14.10",
+    "eslint": "8.57.0",
+    "tsup": "8.1.0",
+    "tsx": "4.16.2",
+    "typescript": "5.5.3",
+    "prisma": "5.16.2"
+},
+"dependencies": {
+    "@prisma/client": "5.16.2",
+    "dotenv": "16.4.5",
+    "fastify": "4.28.1",
+    "zod": "3.23.8"
+}
+
+```
+## 🚀 Como Rodar o Projeto
+
+```json
+"scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "node build/server.js",
+    "build": "tsup src --out-dir build"
+}
+
+```
+
+
+# Passos para Configuração do Projeto
+
+## 1. Instale as Dependências
+```sh
+npm install
+```
+
+## 2. Suba o Banco de Dados com Docker
+Na raiz do projeto, rode o comando:
+```sh
+docker-compose up -d
+```
+
+## 3. Configure as Variáveis de Ambiente
+Edite o arquivo .env com a URL do banco de dados.
+
+## 4. Execute as Migrações do Prisma
+Na raiz do projeto, rode o comando:
+```sh
+npx prisma migrate dev
+```
+
+## 5. Inicie o Servidor em Modo de Desenvolvimento
+Na raiz do projeto, rode o comando:
+```sh
+npm run dev
+```
+
+## 5. Production
+Para criar uma build do projeto, rode:
+```sh
+npm run build
+```
+Inicie o Servidor com a Build Criada
+```sh
+npm run start
+```
+
+
+## 📄 Documentação
+
+A documentação da API pode ser acessada através do Swagger UI na rota: http://localhost:3333/docs.
+
+## 📝 Notas
+
+- Certifique-se de configurar corretamente as variáveis de ambiente no arquivo `.env`.
+- Assegure-se de ter o Docker Instalado.
