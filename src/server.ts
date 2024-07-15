@@ -1,11 +1,16 @@
 import { app } from './app'
 import { env } from './env'
 
-app
-  .listen({
-    host: '0.0.0.0',
-    port: env.PORT,
-  })
-  .then(() => {
-    console.log('Hello world')
-  })
+const startServer = async () => {
+  try {
+    await app.listen({
+      port: env.PORT,
+    })
+
+    console.log('Servidor iniciado na porta env.PORT')
+  } catch (error) {
+    console.error('Erro ao iniciar o servidor:', error)
+  }
+}
+
+startServer()
